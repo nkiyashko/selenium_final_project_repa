@@ -1,5 +1,7 @@
+
 from .base_page import BasePage
 from .locators import ProductPageLocators
+from .locators import BasketPageLocators
 from selenium.common.exceptions import NoAlertPresentException
 import math
 
@@ -22,3 +24,17 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def open_basket_page(self):
+        basket_btn = self.browser.find_element(*ProductPageLocators.BASKET_BTN)
+        basket_btn.click()
+
+    # def product_name_is_the_same(self):
+    #     prod_name = str(*ProductPageLocators.PRODUCT_NAME)
+    #     basket_name = str(*BasketPageLocators.BASKET_PRODUCT_NAME)
+    #     assert prod_name == basket_name
+    #
+    # def product_price_is_the_same(self):
+    #     prod_price = (*ProductPageLocators.PRODUCT_PRICE)
+    #     basket_price = str(*BasketPageLocators.BASKET_PRODUCT_PRICE)
+    #     assert prod_price == basket_price
