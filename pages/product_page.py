@@ -29,12 +29,12 @@ class ProductPage(BasePage):
         basket_btn = self.browser.find_element(*ProductPageLocators.BASKET_BTN)
         basket_btn.click()
 
-    # def product_name_is_the_same(self):
-    #     prod_name = str(*ProductPageLocators.PRODUCT_NAME)
-    #     basket_name = str(*BasketPageLocators.BASKET_PRODUCT_NAME)
-    #     assert prod_name == basket_name
-    #
-    # def product_price_is_the_same(self):
-    #     prod_price = (*ProductPageLocators.PRODUCT_PRICE)
-    #     basket_price = str(*BasketPageLocators.BASKET_PRODUCT_PRICE)
-    #     assert prod_price == basket_price
+    def product_name_is_the_same(self):
+        prod_name = str(*ProductPageLocators.PRODUCT_NAME)
+        basket_name = str(*BasketPageLocators.BASKET_PRODUCT_NAME)
+        assert prod_name == basket_name
+
+    def product_price_is_the_same(self, browser):
+        prod_price = browser.(*ProductPageLocators.PRODUCT_PRICE)
+        basket_price = str(*BasketPageLocators.BASKET_PRODUCT_PRICE)
+        assert prod_price == basket_price
